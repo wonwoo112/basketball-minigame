@@ -51,6 +51,7 @@ public class BallBehaviour : MonoBehaviour
         }
     }
     float getNewX() {
+        // function for getting the new x position of the ball
         if (isDribbling) {
             float oldX = transform.position.x, newX;
             if (holdingHand == dribblingDirection) {
@@ -66,6 +67,7 @@ public class BallBehaviour : MonoBehaviour
         }
     }
     float getNewY() {
+        // function for getting the new y position of the ball 
         if (isDribbling) {
             float oldY = transform.position.y, newY;
             if (goingUp) {
@@ -90,6 +92,7 @@ public class BallBehaviour : MonoBehaviour
         
     }
     void updateState(float newY) {
+        // function for updating the state of the ball 
         if (!isDribbling) return;
         if (goingUp) {    
             if (leftDribble) {
@@ -107,7 +110,7 @@ public class BallBehaviour : MonoBehaviour
                 goingUp = false;
             }
         }
-        else if (newY == lowerBound) {
+        else if (newY <= lowerBound) {
             goingUp = true;
             xSpeed = 0.0f;
             holdingHand = dribblingDirection;
